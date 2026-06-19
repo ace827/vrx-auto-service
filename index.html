@@ -1,1829 +1,1750 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VRX Auto Service - Expert Auto Repair in Glendale, CA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VRX Auto Service | Glendale, CA Auto Repair</title>
+  <meta name="description" content="VRX Auto Service in Glendale, CA — 4.8-star rated auto repair shop. Engine diagnostics, brakes, oil changes, tires & more. Mon–Sat 8AM–6:30PM. Call (818) 818-2887." />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     :root {
-      --ink: #161210;
-      --ink2: #1f1917;
-      --ink3: #2a2220;
-      --orange: #e05c1a;
-      --orange2: #f97316;
-      --orange3: #c44d12;
-      --off: #faf8f5;
-      --warm: #f0ede8;
-      --border: #e5e0d8;
-      --mid: #9c9188;
-      --dark: #3d3530;
-      --card: #f5f2ee;
-      --white: #ffffff;
+      --ink:    #0d1117;
+      --ink2:   #161b22;
+      --ink3:   #1c2333;
+      --blue:   #2563eb;
+      --blue2:  #3b82f6;
+      --blue3:  #1d4ed8;
+      --off:    #f8fafc;
+      --warm:   #f1f5f9;
+      --border: #e2e8f0;
+      --mid:    #64748b;
+      --dark:   #1e293b;
+      --card:   #f8fafc;
+      --white:  #ffffff;
+      --accent: #2563eb;
+      --accent2:#3b82f6;
+      --accent3:#1d4ed8;
     }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--white); overflow-x: hidden; }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Raleway', sans-serif; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    /* SVG SPRITE */
+    .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--dark);
-      line-height: 1.6;
-      background: var(--white);
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Raleway', sans-serif;
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    a {
-      color: var(--orange);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    a:hover {
-      color: var(--orange2);
-    }
-
-    button {
-      font-family: 'Inter', sans-serif;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    /* SVG Icon Styles */
-    svg {
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    /* ===== TOP BAR ===== */
+    /* TOPBAR */
     .topbar {
-      display: none;
+      background: var(--ink);
+      color: #94a3b8;
+      font-size: 0.75rem;
+      padding: 0.5rem 0;
+      font-family: 'Inter', sans-serif;
     }
+    .topbar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .topbar-item { display: flex; align-items: center; gap: 0.4rem; }
+    .topbar-item svg { flex-shrink: 0; color: var(--blue2); }
+    .topbar-cta {
+      background: var(--blue);
+      color: var(--white);
+      padding: 0.35rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .topbar-cta:hover { background: var(--blue3); }
 
-    /* ===== STICKY NAV ===== */
+    /* NAV */
     nav {
       position: sticky;
       top: 0;
+      z-index: 1000;
       background: var(--white);
       border-bottom: 1px solid var(--border);
-      z-index: 100;
-      padding: 15px 40px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 64px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
     }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      color: var(--ink);
-      font-size: 18px;
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-logo {
+      width: 40px; height: 40px;
+      background: var(--blue);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
     }
-
-    .nav-brand svg {
-      width: 28px;
-      height: 28px;
-      stroke: var(--orange);
+    .nav-logo svg { color: white; }
+    .nav-name { font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--ink); line-height: 1.1; }
+    .nav-city { font-size: 0.7rem; font-weight: 500; color: var(--mid); letter-spacing: 0.05em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 1.75rem; }
+    .nav-links a { font-size: 0.85rem; font-weight: 600; color: var(--dark); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-call {
+      background: var(--blue);
+      color: white;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex; align-items: center; gap: 0.4rem;
+      transition: background 0.2s, transform 0.15s;
     }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--dark);
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .nav-links a:hover {
-      color: var(--orange);
-    }
-
-    .nav-cta {
-      background: var(--orange);
-      color: var(--white);
-      padding: 10px 20px;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 13px;
-    }
-
-    .nav-cta:hover {
-      background: var(--orange2);
-    }
-
-    .nav-toggle {
+    .nav-call:hover { background: var(--blue3); transform: translateY(-1px); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.25rem; }
+    .mobile-menu {
       display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: white;
+      border-bottom: 2px solid var(--blue);
+      z-index: 999;
+      padding: 1.5rem;
       flex-direction: column;
-      gap: 5px;
+      gap: 1rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1rem; font-weight: 600; color: var(--dark); padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-call {
+      background: var(--blue);
+      color: white;
+      padding: 0.875rem;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-top: 0.5rem;
     }
 
-    .nav-toggle span {
-      width: 24px;
-      height: 2px;
-      background: var(--ink);
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        padding: 15px 20px;
-      }
-
-      .nav-brand {
-        font-size: 16px;
-      }
-
-      .nav-brand svg {
-        width: 24px;
-        height: 24px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .nav-cta {
-        display: none;
-      }
-
-      .nav-toggle {
-        display: flex;
-      }
-    }
-
-    /* ===== HERO ===== */
+    /* HERO */
     .hero {
       position: relative;
-      height: 100vh;
-      min-height: 600px;
+      min-height: 92vh;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       overflow: hidden;
-      padding: 0 60px;
     }
-
     .hero-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(135deg, rgba(22, 18, 16, 0.65) 0%, rgba(22, 18, 16, 0.45) 100%), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1920&q=85');
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1920&q=85');
       background-size: cover;
       background-position: center;
-      z-index: 1;
     }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 500px;
-      color: var(--white);
+    .hero-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg, rgba(10,15,30,0.92) 0%, rgba(10,15,30,0.7) 55%, rgba(10,15,30,0.4) 100%);
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem 4rem;
       width: 100%;
-    }
-
-    .hero-content h1 {
-      font-size: 56px;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      color: var(--white);
-      font-weight: 700;
-    }
-
-    .hero-content p {
-      font-size: 18px;
-      margin-bottom: 32px;
-      color: #f0ede8;
-      line-height: 1.8;
-    }
-
-    .hero-highlight {
-      background: rgba(224, 92, 26, 0.15);
-      border-left: 3px solid var(--orange);
-      padding: 20px;
-      margin-bottom: 32px;
-      border-radius: 4px;
-    }
-
-    .hero-highlight h3 {
-      font-size: 16px;
-      color: var(--orange);
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    .hero-highlight p {
-      font-size: 14px;
-      margin: 0;
-      color: #f0ede8;
-    }
-
-    .hero-ctas {
-      display: flex;
-      gap: 16px;
-    }
-
-    .btn-primary {
-      background: var(--orange);
-      color: var(--white);
-      padding: 14px 36px;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 15px;
-      white-space: nowrap;
-    }
-
-    .btn-primary:hover {
-      background: var(--orange2);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      padding: 14px 36px;
-      border: 2px solid var(--white);
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 15px;
-      white-space: nowrap;
-    }
-
-    .btn-secondary:hover {
-      background: var(--white);
-      color: var(--ink);
-    }
-
-    .hero-info-card {
-      position: relative;
-      z-index: 2;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 40px 35px;
-      border-radius: 8px;
-      max-width: 300px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-      text-align: center;
-    }
-
-    .hero-info-card h3 {
-      font-size: 48px;
-      margin-bottom: 12px;
-      color: var(--orange);
-      font-weight: 800;
-    }
-
-    .hero-info-card p {
-      color: var(--dark);
-      font-size: 14px;
-      margin-bottom: 16px;
-      line-height: 1.6;
-    }
-
-    .hero-info-card a {
-      font-weight: 600;
-      font-size: 14px;
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        justify-content: center;
-        padding: 40px 20px;
-        min-height: 80vh;
-      }
-
-      .hero-content {
-        text-align: center;
-        max-width: 100%;
-      }
-
-      .hero-content h1 {
-        font-size: 36px;
-        line-height: 1.3;
-        margin-bottom: 16px;
-      }
-
-      .hero-content p {
-        font-size: 16px;
-        margin-bottom: 24px;
-      }
-
-      .hero-highlight {
-        margin-bottom: 24px;
-        padding: 16px;
-      }
-
-      .hero-ctas {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .btn-primary, .btn-secondary {
-        padding: 12px 28px;
-        font-size: 14px;
-      }
-
-      .hero-info-card {
-        display: none;
-      }
-    }
-
-    /* ===== STATS BAND ===== */
-    .stats-band {
-      background: var(--orange);
-      color: var(--white);
-      padding: 60px 40px;
-      text-align: center;
-    }
-
-    .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 30px;
-      max-width: 900px;
-      margin: 0 auto;
+      grid-template-columns: 1fr 340px;
+      gap: 3rem;
+      align-items: center;
     }
-
-    .stat-item h3 {
-      font-size: 36px;
-      color: var(--white);
-      margin-bottom: 8px;
-      font-weight: 800;
-    }
-
-    .stat-item p {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.95);
-      line-height: 1.5;
-    }
-
-    @media (max-width: 768px) {
-      .stats-band {
-        padding: 45px 20px;
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
-
-      .stat-item h3 {
-        font-size: 28px;
-      }
-
-      .stat-item p {
-        font-size: 13px;
-      }
-    }
-
-    /* ===== HOW IT WORKS ===== */
-    .how-it-works {
-      padding: 80px 40px;
-      background: var(--warm);
-      text-align: center;
-    }
-
-    .section-title {
-      font-size: 42px;
-      margin-bottom: 50px;
-      color: var(--ink);
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 40px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .process-step {
-      text-align: center;
-      opacity: 0;
-      animation: fadeUp 0.6s ease forwards;
-    }
-
-    .process-step:nth-child(1) { animation-delay: 0.1s; }
-    .process-step:nth-child(2) { animation-delay: 0.2s; }
-    .process-step:nth-child(3) { animation-delay: 0.3s; }
-    .process-step:nth-child(4) { animation-delay: 0.4s; }
-
-    .step-number {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      width: 60px;
-      height: 60px;
-      background: var(--orange);
-      color: var(--white);
-      border-radius: 50%;
-      font-size: 28px;
+      gap: 0.5rem;
+      background: rgba(37,99,235,0.2);
+      border: 1px solid rgba(59,130,246,0.4);
+      color: var(--blue2);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.875rem;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      color: white;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 span { color: var(--blue2); }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+      margin-bottom: 2rem;
+      max-width: 520px;
+      font-weight: 400;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: all 0.2s;
+      border: 2px solid var(--blue);
+    }
+    .btn-primary:hover { background: var(--blue3); border-color: var(--blue3); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.35); }
+    .btn-outline {
+      background: transparent;
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      border: 2px solid rgba(255,255,255,0.4);
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); transform: translateY(-2px); }
+    .hero-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(16px);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+    .hero-card-title {
+      font-family: 'Raleway', sans-serif;
       font-weight: 800;
-      margin-bottom: 20px;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue2);
+      margin-bottom: 1.25rem;
     }
-
-    .process-step h3 {
-      font-size: 20px;
-      margin-bottom: 12px;
+    .hero-card-row {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
+    .hero-card-row:last-child { border-bottom: none; }
+    .hero-card-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(37,99,235,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-card-icon svg { color: var(--blue2); }
+    .hero-card-label { font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.45); letter-spacing: 0.05em; text-transform: uppercase; }
+    .hero-card-value { font-size: 0.875rem; font-weight: 600; color: white; margin-top: 0.15rem; }
+    .stars-row { display: flex; align-items: center; gap: 0.3rem; }
+    .star-filled { color: #f59e0b; }
 
-    .process-step p {
+    /* STATS BAND */
+    .stats-band {
+      background: var(--blue);
+      padding: 1.75rem 0;
+    }
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 0.75rem 1rem;
+      border-right: 1px solid rgba(255,255,255,0.2);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: white;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .stat-label { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.75); letter-spacing: 0.04em; text-transform: uppercase; }
+
+    /* SECTION BASICS */
+    section { padding: 5rem 0; }
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.6rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px; height: 2px;
+      background: var(--blue);
+    }
+    .section-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+    .section-sub {
+      font-size: 1rem;
       color: var(--mid);
-      font-size: 14px;
+      line-height: 1.65;
+      max-width: 560px;
     }
+    .section-header { margin-bottom: 3rem; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-label { justify-content: center; }
+    .section-header.center .section-label::before { display: none; }
+    .section-header.center .section-sub { margin: 0 auto; }
 
-    @media (max-width: 768px) {
-      .how-it-works {
-        padding: 60px 20px;
-      }
-
-      .section-title {
-        font-size: 32px;
-      }
-
-      .process-grid {
-        gap: 30px;
-      }
+    /* HOW IT WORKS */
+    .how { background: var(--off); }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
     }
-
-    /* ===== SERVICES ===== */
-    .services {
-      padding: 80px 40px;
-      background: var(--white);
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 36px; left: 8%; right: 8%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue) 0%, var(--blue2) 100%);
+      z-index: 0;
     }
+    .step-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      position: relative; z-index: 1;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .step-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(37,99,235,0.12); }
+    .step-num {
+      width: 56px; height: 56px;
+      background: var(--blue);
+      color: white;
+      border-radius: 50%;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem;
+      box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+    }
+    .step-title {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .step-desc { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
 
+    /* SERVICES */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-      margin-top: 50px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
     }
-
     .service-card {
       background: var(--card);
-      padding: 30px;
-      border-radius: 8px;
-      border-top: 4px solid var(--orange);
-      opacity: 0;
-      animation: fadeUp 0.6s ease forwards;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
     }
-
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 30px rgba(224, 92, 26, 0.15);
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
     }
-
-    .service-card:nth-child(1) { animation-delay: 0.1s; }
-    .service-card:nth-child(2) { animation-delay: 0.2s; }
-    .service-card:nth-child(3) { animation-delay: 0.3s; }
-    .service-card:nth-child(4) { animation-delay: 0.4s; }
-    .service-card:nth-child(5) { animation-delay: 0.5s; }
-    .service-card:nth-child(6) { animation-delay: 0.6s; }
-
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(37,99,235,0.1); border-color: var(--blue2); }
+    .service-card:hover::before { transform: scaleX(1); }
     .service-icon {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 16px;
-      color: var(--orange);
+      width: 52px; height: 52px;
+      background: rgba(37,99,235,0.08);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+      color: var(--blue);
+      transition: background 0.25s;
     }
-
-    .service-card h3 {
-      font-size: 20px;
-      margin-bottom: 12px;
+    .service-card:hover .service-icon { background: rgba(37,99,235,0.15); }
+    .service-title {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
     }
-
-    .service-card p {
-      font-size: 14px;
-      color: var(--mid);
-      margin-bottom: 16px;
+    .service-desc { font-size: 0.83rem; color: var(--mid); margin-bottom: 1rem; line-height: 1.55; }
+    .service-list { display: flex; flex-direction: column; gap: 0.3rem; }
+    .service-list li {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; color: var(--dark); font-weight: 500;
     }
+    .service-list li svg { color: var(--blue); flex-shrink: 0; }
 
-    .service-details {
-      list-style: none;
-      font-size: 13px;
-      color: var(--dark);
-    }
-
-    .service-details li {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-
-    .service-details svg {
-      width: 16px;
-      height: 16px;
-      color: var(--orange);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    @media (max-width: 768px) {
-      .services {
-        padding: 60px 20px;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-    }
-
-    /* ===== COMPARISON ===== */
-    .comparison {
-      padding: 80px 40px;
-      background: var(--warm);
-    }
-
-    .comparison-grid {
+    /* COMPARISON */
+    .comparison { background: var(--ink); }
+    .comparison .section-title { color: white; }
+    .comparison .section-label { color: var(--blue2); }
+    .comparison .section-label::before { background: var(--blue2); }
+    .comparison .section-sub { color: rgba(255,255,255,0.6); }
+    .compare-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      max-width: 1000px;
-      margin: 0 auto;
-      margin-top: 50px;
+      gap: 1.5rem;
     }
-
-    .comparison-column h3 {
-      font-size: 24px;
-      margin-bottom: 30px;
+    .compare-card {
+      border-radius: 16px;
+      padding: 2rem;
     }
-
-    .comparison-column.dealer h3 {
-      color: #d97706;
+    .compare-card.bad {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
     }
-
-    .comparison-column.independent h3 {
-      color: var(--orange);
+    .compare-card.good {
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(37,99,235,0.3);
     }
-
-    .comparison-item {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 20px;
-      font-size: 14px;
+    .compare-header {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.5rem;
     }
-
-    .comparison-item svg {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-      margin-top: 2px;
+    .compare-badge {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
-
-    .dealer .comparison-item svg {
-      color: #d97706;
+    .compare-badge.bad-badge { color: #f87171; }
+    .compare-badge.good-badge { color: var(--blue2); }
+    .compare-icon-wrap {
+      width: 40px; height: 40px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
     }
-
-    .independent .comparison-item svg {
-      color: var(--orange);
+    .compare-icon-wrap.bad-icon { background: rgba(248,113,113,0.15); color: #f87171; }
+    .compare-icon-wrap.good-icon { background: rgba(37,99,235,0.2); color: var(--blue2); }
+    .compare-item {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.875rem; color: rgba(255,255,255,0.75);
     }
+    .compare-item:last-child { border-bottom: none; }
+    .compare-item svg { flex-shrink: 0; margin-top: 1px; }
 
-    @media (max-width: 768px) {
-      .comparison {
-        padding: 60px 20px;
-      }
-
-      .comparison-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        margin-top: 40px;
-      }
-    }
-
-    /* ===== ABOUT ===== */
-    .about {
-      padding: 80px 40px;
-      background: var(--white);
-    }
-
-    .about-content {
+    /* ABOUT */
+    .about { background: var(--off); }
+    .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 4rem;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
     }
-
-    .about-img {
-      width: 100%;
-      height: 400px;
-      background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85');
-      background-size: cover;
-      background-position: center;
+    .about-img-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      max-height: 560px;
+    }
+    .about-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .about-img-badge {
+      position: absolute;
+      bottom: 1.5rem; left: 1.5rem;
+      background: white;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      display: flex; align-items: center; gap: 0.875rem;
+    }
+    .about-img-badge-icon {
+      width: 44px; height: 44px;
+      background: var(--blue);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; flex-shrink: 0;
+    }
+    .about-img-badge-text strong { display: block; font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 1rem; color: var(--ink); }
+    .about-img-badge-text span { font-size: 0.75rem; color: var(--mid); }
+    .about-checks { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+    .about-check {
+      display: flex; align-items: flex-start; gap: 0.875rem;
+      padding: 1rem 1.25rem;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .about-check-icon {
+      width: 36px; height: 36px;
+      background: rgba(37,99,235,0.08);
       border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue); flex-shrink: 0;
     }
+    .about-check strong { display: block; font-weight: 700; font-size: 0.875rem; color: var(--ink); margin-bottom: 0.15rem; }
+    .about-check span { font-size: 0.8rem; color: var(--mid); line-height: 1.5; }
 
-    .about-text h2 {
-      font-size: 36px;
-      margin-bottom: 24px;
+    /* REVIEWS */
+    .reviews { background: var(--ink2); }
+    .reviews .section-title { color: white; }
+    .reviews .section-label { color: var(--blue2); }
+    .reviews .section-label::before { background: var(--blue2); }
+    .pullquote {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-left: 4px solid var(--blue);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 3rem;
     }
-
-    .about-text p {
-      color: var(--mid);
-      margin-bottom: 20px;
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .about-list {
-      list-style: none;
-      margin-top: 20px;
-    }
-
-    .about-list li {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 12px;
-      font-size: 14px;
-    }
-
-    .about-list svg {
-      width: 20px;
-      height: 20px;
-      color: var(--orange);
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 768px) {
-      .about {
-        padding: 60px 20px;
-      }
-
-      .about-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .about-img {
-        height: 300px;
-      }
-
-      .about-text h2 {
-        font-size: 28px;
-      }
-    }
-
-    /* ===== REVIEWS ===== */
-    .reviews {
-      padding: 80px 40px;
-      background: var(--ink3);
-      color: var(--white);
-    }
-
-    .reviews .section-title {
-      color: var(--white);
-    }
-
-    .featured-review {
-      background: rgba(255, 255, 255, 0.1);
-      border-left: 4px solid var(--orange);
-      padding: 40px;
-      border-radius: 8px;
-      max-width: 700px;
-      margin: 0 auto 60px;
-      text-align: center;
-    }
-
-    .featured-review .stars {
-      font-size: 20px;
-      color: var(--orange);
-      margin-bottom: 16px;
-    }
-
-    .featured-review p {
-      font-size: 18px;
-      line-height: 1.8;
-      margin-bottom: 16px;
+    .pullquote-text {
+      font-size: 1.3rem;
+      color: white;
       font-style: italic;
+      line-height: 1.65;
+      font-weight: 300;
+      margin-bottom: 1.25rem;
     }
-
-    .featured-review .author {
-      font-size: 14px;
-      color: #c9bcb3;
+    .pullquote-author {
+      display: flex; align-items: center; gap: 0.75rem;
     }
-
+    .pullquote-avatar {
+      width: 44px; height: 44px;
+      background: var(--blue);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Raleway', sans-serif; font-weight: 800; color: white; font-size: 1rem;
+    }
+    .pullquote-author-name { font-weight: 700; color: white; font-size: 0.875rem; }
+    .pullquote-stars { display: flex; gap: 0.2rem; }
     .reviews-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      max-width: 1200px;
-      margin: 0 auto;
-      margin-top: 40px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
     }
-
     .review-card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 25px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
     }
-
-    .review-card .stars {
-      color: var(--orange);
-      margin-bottom: 12px;
-    }
-
-    .review-card p {
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-
-    .review-card .author {
-      font-size: 13px;
-      color: #c9bcb3;
-    }
-
-    @media (max-width: 768px) {
-      .reviews {
-        padding: 60px 20px;
-      }
-
-      .featured-review {
-        padding: 30px;
-      }
-
-      .reviews-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ===== FAQ ===== */
-    .faq {
-      padding: 80px 40px;
-      background: var(--warm);
-    }
-
-    .faq-container {
-      max-width: 750px;
-      margin: 0 auto;
-      margin-top: 50px;
-    }
-
-    .faq-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      margin-bottom: 12px;
-      overflow: hidden;
-    }
-
-    .faq-question {
-      padding: 18px 20px;
-      background: var(--card);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      font-size: 15px;
-      color: var(--ink);
-      user-select: none;
-      transition: background 0.3s ease;
-    }
-
-    .faq-question:hover {
-      background: #ece8e1;
-    }
-
-    .faq-question svg {
-      width: 18px;
-      height: 18px;
-      color: var(--orange);
+    .review-card:hover { border-color: rgba(59,130,246,0.4); }
+    .review-stars { display: flex; gap: 0.2rem; margin-bottom: 0.875rem; }
+    .review-text { font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.65; margin-bottom: 1rem; font-style: italic; }
+    .review-author { display: flex; align-items: center; gap: 0.6rem; }
+    .review-avatar {
+      width: 36px; height: 36px;
+      background: var(--blue3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Raleway', sans-serif; font-weight: 800; color: white; font-size: 0.8rem;
       flex-shrink: 0;
-      margin-left: 12px;
-      transition: transform 0.3s ease;
     }
+    .review-name { font-size: 0.8rem; font-weight: 700; color: white; }
+    .review-platform { font-size: 0.7rem; color: rgba(255,255,255,0.4); }
 
-    .faq-item.active .faq-question svg {
-      transform: rotate(180deg);
-    }
-
-    .faq-answer {
-      padding: 0 20px;
-      max-height: 0;
+    /* FAQ */
+    .faq { background: var(--warm); }
+    .faq-list { display: flex; flex-direction: column; gap: 0.75rem; max-width: 760px; margin: 0 auto; }
+    .faq-item {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
       overflow: hidden;
-      transition: all 0.3s ease;
-      color: var(--mid);
-      font-size: 14px;
-      line-height: 1.7;
+    }
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700; font-size: 0.95rem; color: var(--ink);
+      gap: 1rem;
+      transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--blue); }
+    .faq-q svg { flex-shrink: 0; transition: transform 0.3s; color: var(--blue); }
+    .faq-q.open svg { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden; transition: max-height 0.35s ease;
+    }
+    .faq-a.open { max-height: 300px; }
+    .faq-a-inner {
+      padding: 0 1.5rem 1.25rem;
+      font-size: 0.875rem; color: var(--mid); line-height: 1.7;
     }
 
-    .faq-item.active .faq-answer {
-      padding: 18px 20px;
-      max-height: 500px;
-    }
-
-    @media (max-width: 768px) {
-      .faq {
-        padding: 60px 20px;
-      }
-
-      .faq-question {
-        padding: 16px;
-      }
-    }
-
-    /* ===== SERVICE AREA ===== */
-    .service-area {
-      padding: 80px 40px;
-      background: var(--white);
-    }
-
-    .service-area-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      margin-top: 50px;
-    }
-
-    .service-area-intro {
+    /* SERVICE AREA */
+    .area { background: var(--ink); }
+    .area .section-title { color: white; }
+    .area .section-label { color: var(--blue2); }
+    .area .section-label::before { background: var(--blue2); }
+    .area .section-sub { color: rgba(255,255,255,0.6); }
+    .area-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-      margin-bottom: 60px;
+      gap: 2rem;
+      align-items: start;
     }
-
-    .service-area-map {
-      width: 100%;
-      height: 300px;
-      background: linear-gradient(135deg, var(--orange) 0%, var(--orange2) 100%);
+    .area-map-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .area-map-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(37,99,235,0.15) 0%, rgba(10,15,30,0.9) 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 1rem;
+    }
+    .area-map-icon { color: var(--blue2); }
+    .area-map-address { color: white; font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 1rem; text-align: center; }
+    .area-map-sub { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+    .area-map-btn {
+      background: var(--blue);
+      color: white;
+      padding: 0.6rem 1.25rem;
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      font-size: 15px;
-      text-align: center;
-      padding: 30px;
-      line-height: 1.7;
+      font-weight: 700;
+      font-size: 0.8rem;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      transition: background 0.2s;
     }
-
-    .service-area-text h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
-    .service-area-text p {
-      color: var(--mid);
-      font-size: 15px;
-      line-height: 1.8;
-      margin-bottom: 16px;
-    }
-
+    .area-map-btn:hover { background: var(--blue3); }
     .neighborhoods {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .neighborhood {
-      background: var(--card);
-      padding: 20px;
-      border-radius: 8px;
-      border-left: 3px solid var(--orange);
-      text-align: center;
-    }
-
-    .neighborhood h4 {
-      font-size: 16px;
-      margin-bottom: 8px;
-      color: var(--ink);
-    }
-
-    .neighborhood p {
-      font-size: 13px;
-      color: var(--mid);
-    }
-
-    @media (max-width: 768px) {
-      .service-area {
-        padding: 60px 20px;
-      }
-
-      .service-area-intro {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .service-area-map {
-        height: 250px;
-      }
-
-      .neighborhoods {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ===== CTA BAND ===== */
-    .cta-band {
-      background: var(--ink);
-      color: var(--white);
-      padding: 60px 40px;
-      text-align: center;
-    }
-
-    .cta-band h2 {
-      font-size: 42px;
-      color: var(--white);
-      margin-bottom: 20px;
-    }
-
-    .cta-band p {
-      font-size: 18px;
-      margin-bottom: 30px;
-      color: #c9bcb3;
-    }
-
-    .cta-phone {
-      font-size: 48px;
-      font-weight: 800;
-      color: var(--orange);
-      margin-bottom: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .cta-band {
-        padding: 40px 20px;
-      }
-
-      .cta-band h2 {
-        font-size: 28px;
-      }
-
-      .cta-phone {
-        font-size: 36px;
-      }
-    }
-
-    /* ===== CONTACT ===== */
-    .contact {
-      padding: 80px 40px;
-      background: var(--warm);
-    }
-
-    .contact-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      margin-top: 50px;
-      display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 0.75rem;
     }
-
-    .hours-section h3 {
-      font-size: 20px;
-      margin-bottom: 24px;
-      color: var(--ink);
+    .neighborhood {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 0.875rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
     }
-
-    .hours-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .hours-table tr:nth-child(odd) {
-      background: var(--white);
-    }
-
-    .hours-table tr:nth-child(even) {
-      background: var(--card);
-    }
-
-    .hours-table td {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hours-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .hours-table td:first-child {
-      color: var(--dark);
-      font-weight: 600;
-      width: 140px;
-    }
-
-    .hours-table td:last-child {
-      color: var(--mid);
-      text-align: right;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--dark);
-      font-size: 14px;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid var(--border);
+    .neighborhood-name { font-weight: 600; color: white; font-size: 0.85rem; }
+    .neighborhood-time {
+      font-size: 0.75rem; color: var(--blue2); font-weight: 700;
+      background: rgba(37,99,235,0.15);
+      padding: 0.2rem 0.5rem;
       border-radius: 4px;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: var(--dark);
     }
 
+    /* CTA BAND */
+    .cta-band {
+      background: var(--blue);
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .cta-band h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 900;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .cta-band p { color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 1.75rem; }
+    .cta-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: white;
+      color: var(--blue3);
+      padding: 1rem 2.5rem;
+      border-radius: 10px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-phone:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.2); }
+    .cta-hours { margin-top: 1.25rem; color: rgba(255,255,255,0.7); font-size: 0.875rem; }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table tr { border-bottom: 1px solid var(--border); }
+    .hours-table td { padding: 0.65rem 0; font-size: 0.875rem; }
+    .hours-table td:first-child { font-weight: 600; color: var(--ink); }
+    .hours-table td:last-child { color: var(--mid); text-align: right; }
+    .hours-table tr.today td { color: var(--blue); font-weight: 700; }
+    .contact-info { display: flex; flex-direction: column; gap: 0.875rem; margin-bottom: 2rem; }
+    .contact-info-row {
+      display: flex; align-items: center; gap: 0.875rem;
+      padding: 1rem;
+      background: var(--card);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .contact-info-icon {
+      width: 40px; height: 40px;
+      background: rgba(37,99,235,0.08);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue); flex-shrink: 0;
+    }
+    .contact-info-label { font-size: 0.7rem; font-weight: 700; color: var(--mid); text-transform: uppercase; letter-spacing: 0.05em; }
+    .contact-info-value { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--dark); margin-bottom: 0.4rem; }
+    .form-group input,
+    .form-group select,
     .form-group textarea {
-      resize: vertical;
-      min-height: 100px;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      color: var(--dark);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
     }
-
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .form-submit {
       width: 100%;
-      background: var(--orange);
-      color: var(--white);
-      padding: 12px;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 15px;
+      background: var(--blue);
+      color: white;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 8px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
     }
+    .form-submit:hover { background: var(--blue3); transform: translateY(-1px); }
 
-    .form-submit:hover {
-      background: var(--orange2);
-    }
-
-    @media (max-width: 768px) {
-      .contact {
-        padding: 60px 20px;
-      }
-
-      .contact-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-    }
-
-    /* ===== FOOTER ===== */
+    /* FOOTER */
     footer {
       background: var(--ink);
-      color: var(--white);
-      padding: 50px 40px 25px;
+      color: rgba(255,255,255,0.6);
+      padding: 4rem 0 2rem;
     }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
+    .footer-top {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 50px;
-      margin-bottom: 40px;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-
-    .footer-brand {
-      color: var(--white);
-    }
-
-    .footer-brand h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      color: var(--white);
-    }
-
-    .footer-brand p {
-      font-size: 13px;
-      color: #c9bcb3;
-      line-height: 1.6;
-    }
-
-    .footer-links h4 {
-      font-size: 13px;
-      margin-bottom: 14px;
-      color: var(--white);
-      font-weight: 600;
-    }
-
-    .footer-links ul {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 8px;
-      font-size: 13px;
-    }
-
-    .footer-links a {
-      color: #c9bcb3;
-      font-size: 13px;
-    }
-
-    .footer-links li:not(a) {
-      color: #c9bcb3;
-      line-height: 1.6;
-    }
-
+    .footer-brand .nav-logo { margin-bottom: 1rem; }
+    .footer-brand-name { font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 1.2rem; color: white; }
+    .footer-brand-tagline { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 0.25rem; margin-bottom: 1rem; }
+    .footer-rating { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; }
+    .footer-col-title { font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul li a { font-size: 0.85rem; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--blue2); }
     .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 25px;
-      text-align: center;
-      font-size: 12px;
-      color: #8a7f76;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.75rem;
+    }
+
+    /* REVEAL ANIMATIONS */
+    .reveal, .rl, .rr {
+      opacity: 0;
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal { transform: translateY(28px); }
+    .rl { transform: translateX(-32px); }
+    .rr { transform: translateX(32px); }
+    .reveal.in, .rl.in, .rr.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid::before { display: none; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 768px) {
-      footer {
-        padding: 40px 20px 20px;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
+      .topbar-left { gap: 0.75rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .hero h1 { font-size: 2rem; }
+      .hero { min-height: 80vh; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item { border-bottom: 1px solid rgba(255,255,255,0.15); }
+      .stat-item:nth-child(3),
+      .stat-item:nth-child(4) { border-bottom: none; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img-wrap { aspect-ratio: 16/9; max-height: 260px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .area-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .pullquote { padding: 1.5rem; }
+      .pullquote-text { font-size: 1rem; }
+      section { padding: 3.5rem 0; }
+      .cta-phone { font-size: 1.2rem; padding: 0.875rem 1.75rem; }
+      .neighborhoods { grid-template-columns: 1fr; }
     }
 
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @media (max-width: 480px) {
+      .hero-btns { flex-direction: column; }
+      .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+      .topbar-left .topbar-item:nth-child(2) { display: none; }
     }
-
-    .reveal {
-      opacity: 0;
-      animation: fadeUp 0.6s ease forwards;
-    }
-
   </style>
 </head>
 <body>
-  <!-- SVG Icon Sprite -->
-  <svg style="display: none;">
-    <symbol id="i-phone" viewBox="0 0 24 24" stroke-width="2">
-      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
-    </symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24" stroke-width="2">
-      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"></path>
-      <circle cx="12" cy="10" r="3"></circle>
-    </symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24" stroke-width="2">
-      <circle cx="12" cy="12" r="10"></circle>
-      <polyline points="12 6 12 12 16 14"></polyline>
-    </symbol>
-    <symbol id="i-star" viewBox="0 0 24 24">
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-    </symbol>
-    <symbol id="i-check" viewBox="0 0 24 24" stroke-width="2">
-      <polyline points="20 6 9 17 4 12"></polyline>
-    </symbol>
-    <symbol id="i-x" viewBox="0 0 24 24" stroke-width="2">
-      <line x1="18" y1="6" x2="6" y2="18"></line>
-      <line x1="6" y1="6" x2="18" y2="18"></line>
-    </symbol>
-    <symbol id="i-chevron-down" viewBox="0 0 24 24" stroke-width="2">
-      <polyline points="6 9 12 15 18 9"></polyline>
-    </symbol>
-    <symbol id="i-wrench" viewBox="0 0 24 24" stroke-width="2">
-      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 1 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-    </symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24" stroke-width="2">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-    </symbol>
-    <symbol id="i-oil" viewBox="0 0 24 24" stroke-width="2">
-      <circle cx="12" cy="8" r="3"></circle>
-      <path d="M12 11v8M8 19h8a2 2 0 012 2v1H6v-1a2 2 0 012-2z"></path>
-      <path d="M6 11h12"></path>
-    </symbol>
-    <symbol id="i-brake" viewBox="0 0 24 24" stroke-width="2">
-      <circle cx="12" cy="12" r="9"></circle>
-      <path d="M12 7v10M7 12h10"></path>
-    </symbol>
-    <symbol id="i-engine" viewBox="0 0 24 24" stroke-width="2">
-      <rect x="2" y="6" width="20" height="12" rx="2"></rect>
-      <path d="M6 10v4M12 10v4M18 10v4"></path>
-    </symbol>
-    <symbol id="i-battery" viewBox="0 0 24 24" stroke-width="2">
-      <rect x="2" y="7" width="16" height="10" rx="2"></rect>
-      <line x1="22" y1="11" x2="22" y2="13"></line>
-    </symbol>
-    <symbol id="i-inspect" viewBox="0 0 24 24" stroke-width="2">
-      <circle cx="12" cy="12" r="9"></circle>
-      <line x1="12" y1="8" x2="12" y2="16"></line>
-      <line x1="8" y1="12" x2="16" y2="12"></line>
-    </symbol>
-    <symbol id="i-tire" viewBox="0 0 24 24" stroke-width="2">
-      <circle cx="12" cy="12" r="9"></circle>
-      <circle cx="12" cy="12" r="5"></circle>
-    </symbol>
-    <symbol id="i-chat" viewBox="0 0 24 24" stroke-width="2">
-      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path>
-    </symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24" stroke-width="2">
-      <line x1="5" y1="12" x2="19" y2="12"></line>
-      <polyline points="12 5 19 12 12 19"></polyline>
-    </symbol>
-    <symbol id="i-mail" viewBox="0 0 24 24" stroke-width="2">
-      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-      <path d="M22 6l-10 7L2 6"></path>
-    </symbol>
-    <symbol id="i-card" viewBox="0 0 24 24" stroke-width="2">
-      <rect x="1" y="4" width="22" height="16" rx="2"></rect>
-      <line x1="1" y1="10" x2="23" y2="10"></line>
-    </symbol>
-  </svg>
 
+<!-- SVG SPRITE -->
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/>
+    </symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+    </symbol>
+    <symbol id="i-oil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/>
+    </symbol>
+    <symbol id="i-brake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/>
+    </symbol>
+    <symbol id="i-engine" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 7V5"/><path d="M17 7V5"/><path d="M7 17v2"/><path d="M17 17v2"/><path d="M3 12h2"/><path d="M19 12h2"/>
+    </symbol>
+    <symbol id="i-battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="1" y="6" width="18" height="12" rx="2"/><line x1="23" y1="13" x2="23" y2="11"/><line x1="7" y1="12" x2="11" y2="12"/><line x1="9" y1="10" x2="9" y2="14"/>
+    </symbol>
+    <symbol id="i-inspect" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+    </symbol>
+    <symbol id="i-tire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="22"/><line x1="2" y1="12" x2="8" y2="12"/><line x1="16" y1="12" x2="22" y2="12"/>
+    </symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </symbol>
+    <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+    </symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+    </symbol>
+  </defs>
+</svg>
 
-  <!-- ===== STICKY NAV ===== -->
-  <nav>
-    <div class="nav-brand">
-      <svg><use href="#i-wrench"></use></svg>
-      VRX Auto Service
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <div class="topbar-item">
+        <svg width="13" height="13"><use href="#i-pin"/></svg>
+        <span>1256 S Central Ave, Glendale, CA 91204</span>
+      </div>
+      <div class="topbar-item">
+        <svg width="13" height="13"><use href="#i-clock"/></svg>
+        <span>Mon–Sat: 8AM–6:30PM &nbsp;|&nbsp; Sunday: Closed</span>
+      </div>
     </div>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="tel:+16263920950" class="nav-cta">
-      <svg style="margin-right: 6px;" width="14" height="14"><use href="#i-phone"></use></svg>
-      Call
+    <a href="tel:8188182887" class="topbar-cta">
+      <svg width="12" height="12"><use href="#i-phone"/></svg>
+      (818) 818-2887
     </a>
-    <button class="nav-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="top">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-logo">
+        <svg width="22" height="22"><use href="#i-wrench"/></svg>
+      </div>
+      <div>
+        <div class="nav-name">VRX Auto Service</div>
+        <div class="nav-city">Glendale, California</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:8188182887" class="nav-call">
+        <svg width="14" height="14"><use href="#i-phone"/></svg>
+        Call Now
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <svg width="24" height="24" fill="none" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
     </button>
-  </nav>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="closeMenu()">Services</a>
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#reviews" onclick="closeMenu()">Reviews</a>
+    <a href="#faq" onclick="closeMenu()">FAQ</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="tel:8188182887" class="mobile-call">
+      <svg width="16" height="16" style="vertical-align:middle;margin-right:6px"><use href="#i-phone"/></svg>
+      (818) 818-2887
+    </a>
+  </div>
+</nav>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="hero-img"></div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-inner">
     <div class="hero-content">
-      <h1>Expert Auto Repair You Can Trust</h1>
-      <p>Honest, affordable service for all makes and models. No surprises, no upselling, just quality work done right.</p>
-      <div class="hero-highlight">
-        <h3>4.8★ Rated - Trusted by 1000+ Glendale Drivers</h3>
-        <p>Fast turnaround, fair pricing, and expert technicians with years of experience</p>
+      <div class="hero-badge">
+        <svg width="14" height="14" style="color:#f59e0b"><use href="#i-star"/></svg>
+        4.8 Stars &nbsp;·&nbsp; 30 Google Reviews &nbsp;·&nbsp; Glendale, CA
       </div>
-      <div class="hero-ctas">
-        <a href="tel:+16263920950" class="btn-primary">Call Now</a>
-        <a href="#contact" class="btn-secondary">Request Callback</a>
+      <h1>Glendale's Trusted<br /><span>Auto Repair</span> Experts</h1>
+      <p class="hero-sub">VRX Auto Service delivers honest diagnostics, fair pricing, and quality repairs that last — on every make and model. No surprises. No upsells. Just great work.</p>
+      <div class="hero-btns">
+        <a href="tel:8188182887" class="btn-primary">
+          <svg width="16" height="16"><use href="#i-phone"/></svg>
+          Call (818) 818-2887
+        </a>
+        <a href="#services" class="btn-outline">
+          Our Services
+          <svg width="16" height="16"><use href="#i-arrow"/></svg>
+        </a>
       </div>
     </div>
-    <div class="hero-info-card">
-      <h3>4.8★</h3>
-      <p>Trusted by Glendale drivers with honest, dependable service</p>
-      <a href="#reviews">See Reviews →</a>
+    <div class="hero-card">
+      <div class="hero-card-title">Shop Info</div>
+      <div class="hero-card-row">
+        <div class="hero-card-icon"><svg width="18" height="18"><use href="#i-pin"/></svg></div>
+        <div>
+          <div class="hero-card-label">Address</div>
+          <div class="hero-card-value">1256 S Central Ave<br/>Glendale, CA 91204</div>
+        </div>
+      </div>
+      <div class="hero-card-row">
+        <div class="hero-card-icon"><svg width="18" height="18"><use href="#i-clock"/></svg></div>
+        <div>
+          <div class="hero-card-label">Hours</div>
+          <div class="hero-card-value">Mon–Sat: 8:00 AM – 6:30 PM<br/>Sunday: Closed</div>
+        </div>
+      </div>
+      <div class="hero-card-row">
+        <div class="hero-card-icon"><svg width="18" height="18"><use href="#i-phone"/></svg></div>
+        <div>
+          <div class="hero-card-label">Phone</div>
+          <div class="hero-card-value">(818) 818-2887</div>
+        </div>
+      </div>
+      <div class="hero-card-row">
+        <div class="hero-card-icon"><svg width="18" height="18"><use href="#i-star"/></svg></div>
+        <div>
+          <div class="hero-card-label">Rating</div>
+          <div>
+            <div class="stars-row" style="margin-top:0.25rem">
+              <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+              <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+              <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+              <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+              <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+              <span style="color:white;font-size:0.8rem;margin-left:4px;font-weight:600">4.8 (30 reviews)</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== STATS BAND ===== -->
-  <section class="stats-band">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <h3>4.8★</h3>
-        <p>Customer Rating</p>
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num"><span data-count="4.8">4.8</span><span style="font-size:1.4rem">★</span></div>
+      <div class="stat-label">Google Rating</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span data-count="30">30</span>+</div>
+      <div class="stat-label">Happy Reviews</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">All</div>
+      <div class="stat-label">Makes &amp; Models</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Honest Pricing</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-label">Simple Process</div>
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-sub">Getting your car fixed shouldn't be stressful. Here's exactly what to expect when you bring your vehicle to VRX Auto Service.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal d1">
+        <div class="step-num">1</div>
+        <div class="step-title">Call or Drop By</div>
+        <p class="step-desc">Reach us at (818) 818-2887 or just stop in at 1256 S Central Ave. No appointment necessary — we welcome walk-ins.</p>
       </div>
-      <div class="stat-item">
-        <h3><span class="counter" data-count="1000">1000</span>+</h3>
-        <p>Happy Customers</p>
+      <div class="step-card reveal d2">
+        <div class="step-num">2</div>
+        <div class="step-title">Free Diagnosis</div>
+        <p class="step-desc">We run a thorough diagnostic and show you exactly what's going on — no guesswork, no mystery fees.</p>
       </div>
-      <div class="stat-item">
-        <h3>All Makes</h3>
-        <p>& Models Serviced</p>
+      <div class="step-card reveal d3">
+        <div class="step-num">3</div>
+        <div class="step-title">Approve the Quote</div>
+        <p class="step-desc">You get a clear, written estimate before any work begins. We call you with any updates — you're always in control.</p>
       </div>
-      <div class="stat-item">
-        <h3>100%</h3>
-        <p>Honest Pricing</p>
+      <div class="step-card reveal d4">
+        <div class="step-num">4</div>
+        <div class="step-title">Pick Up &amp; Go</div>
+        <p class="step-desc">Your vehicle is ready when promised. We accept cash, all major credit cards, debit, and NFC mobile payments.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== HOW IT WORKS ===== -->
-  <section class="how-it-works" id="how-it-works">
-    <h2 class="section-title">How It Works</h2>
-    <div class="process-grid">
-      <div class="process-step">
-        <div class="step-number">1</div>
-        <h3>Call Us</h3>
-        <p>Describe your vehicle issue or schedule a drop-off at your convenience</p>
-      </div>
-      <div class="process-step">
-        <div class="step-number">2</div>
-        <h3>We Diagnose</h3>
-        <p>Our technicians perform a thorough inspection and identify the problem</p>
-      </div>
-      <div class="process-step">
-        <div class="step-number">3</div>
-        <h3>Approve Quote</h3>
-        <p>We explain the issue and give you an honest quote before any work begins</p>
-      </div>
-      <div class="process-step">
-        <div class="step-number">4</div>
-        <h3>Pick Up</h3>
-        <p>Your car is ready on time with a full warranty on all repairs</p>
-      </div>
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Full-Service Auto Repair</h2>
+      <p class="section-sub">From routine maintenance to complex engine work, VRX handles it all — on every domestic, Asian, and European vehicle.</p>
     </div>
-  </section>
-
-  <!-- ===== SERVICES ===== -->
-  <section class="services" id="services">
-    <h2 class="section-title">Our Services</h2>
     <div class="services-grid">
-      <div class="service-card">
-        <svg class="service-icon"><use href="#i-oil"></use></svg>
-        <h3>Oil & Filter Changes</h3>
-        <p>Keep your engine running smoothly with our quick, affordable oil change service.</p>
-        <ul class="service-details">
-          <li><svg><use href="#i-check"></use></svg> All types of oil</li>
-          <li><svg><use href="#i-check"></use></svg> Synthetic & conventional</li>
-          <li><svg><use href="#i-check"></use></svg> 15-minute service</li>
+      <div class="service-card reveal d1">
+        <div class="service-icon"><svg width="26" height="26"><use href="#i-engine"/></svg></div>
+        <div class="service-title">Engine Diagnostics &amp; Repair</div>
+        <p class="service-desc">Computerized diagnostics to pinpoint the exact issue — no unnecessary parts or guesswork.</p>
+        <ul class="service-list">
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Check engine light diagnosis</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Timing belt &amp; chain service</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Head gasket repair</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Engine tune-ups</li>
         </ul>
       </div>
-
-      <div class="service-card">
-        <svg class="service-icon"><use href="#i-brake"></use></svg>
-        <h3>Brake Service</h3>
-        <p>Safety first. We service brakes, pads, rotors, and hydraulic systems.</p>
-        <ul class="service-details">
-          <li><svg><use href="#i-check"></use></svg> Brake pad replacement</li>
-          <li><svg><use href="#i-check"></use></svg> Rotor turning & replacement</li>
-          <li><svg><use href="#i-check"></use></svg> Brake fluid flush</li>
+      <div class="service-card reveal d2">
+        <div class="service-icon"><svg width="26" height="26"><use href="#i-brake"/></svg></div>
+        <div class="service-title">Brake System Service</div>
+        <p class="service-desc">Your safety is the priority. We inspect, service, and replace brakes on all vehicle makes and models.</p>
+        <ul class="service-list">
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Brake pad &amp; rotor replacement</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Brake fluid flush</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Caliper service</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>ABS system diagnosis</li>
         </ul>
       </div>
-
-      <div class="service-card">
-        <svg class="service-icon"><use href="#i-battery"></use></svg>
-        <h3>Battery & Electrical</h3>
-        <p>From dead batteries to alternator issues, we diagnose and fix electrical problems.</p>
-        <ul class="service-details">
-          <li><svg><use href="#i-check"></use></svg> Battery replacement</li>
-          <li><svg><use href="#i-check"></use></svg> Alternator service</li>
-          <li><svg><use href="#i-check"></use></svg> Starter repair</li>
+      <div class="service-card reveal d3">
+        <div class="service-icon"><svg width="26" height="26"><use href="#i-oil"/></svg></div>
+        <div class="service-title">Oil Changes &amp; Fluid Services</div>
+        <p class="service-desc">Fast, thorough oil changes using the right oil for your vehicle — conventional, synthetic, or high-mileage.</p>
+        <ul class="service-list">
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Conventional &amp; synthetic oil</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Transmission fluid service</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Coolant flush</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Power steering fluid</li>
         </ul>
       </div>
-
-      <div class="service-card">
-        <svg class="service-icon"><use href="#i-tire"></use></svg>
-        <h3>Tires & Wheels</h3>
-        <p>Quality tires and professional mounting, balancing, and alignment.</p>
-        <ul class="service-details">
-          <li><svg><use href="#i-check"></use></svg> Tire sales & installation</li>
-          <li><svg><use href="#i-check"></use></svg> Wheel balancing</li>
-          <li><svg><use href="#i-check"></use></svg> Alignment service</li>
+      <div class="service-card reveal d1">
+        <div class="service-icon"><svg width="26" height="26"><use href="#i-wrench"/></svg></div>
+        <div class="service-title">Suspension &amp; Steering</div>
+        <p class="service-desc">Rough ride or pulling to one side? We restore your vehicle's handling and comfort.</p>
+        <ul class="service-list">
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Shocks &amp; struts replacement</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Wheel alignment</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Ball joints &amp; tie rods</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>CV axle service</li>
         </ul>
       </div>
-
-      <div class="service-card">
-        <svg class="service-icon"><use href="#i-engine"></use></svg>
-        <h3>Engine Diagnostics</h3>
-        <p>Computer diagnostics to pinpoint exactly what's wrong with your vehicle.</p>
-        <ul class="service-details">
-          <li><svg><use href="#i-check"></use></svg> Check engine light codes</li>
-          <li><svg><use href="#i-check"></use></svg> Computer scan & analysis</li>
-          <li><svg><use href="#i-check"></use></svg> Performance testing</li>
+      <div class="service-card reveal d2">
+        <div class="service-icon"><svg width="26" height="26"><use href="#i-bolt"/></svg></div>
+        <div class="service-title">Electrical System</div>
+        <p class="service-desc">Modern vehicles are 50% electronics. We have the tools and training to diagnose any electrical issue.</p>
+        <ul class="service-list">
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Battery testing &amp; replacement</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Alternator &amp; starter repair</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Wiring diagnostics</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Lighting &amp; fuse service</li>
         </ul>
       </div>
-
-      <div class="service-card">
-        <svg class="service-icon"><use href="#i-shield"></use></svg>
-        <h3>General Maintenance</h3>
-        <p>Preventive maintenance keeps your car running longer and safer.</p>
-        <ul class="service-details">
-          <li><svg><use href="#i-check"></use></svg> Fluid checks & flushes</li>
-          <li><svg><use href="#i-check"></use></svg> Belt & hose service</li>
-          <li><svg><use href="#i-check"></use></svg> Air filter replacement</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== COMPARISON ===== -->
-  <section class="comparison">
-    <h2 class="section-title">Why Choose an Independent Shop?</h2>
-    <div class="comparison-grid">
-      <div class="comparison-column dealer">
-        <h3>Dealership or Chain</h3>
-        <div class="comparison-item">
-          <svg><use href="#i-x"></use></svg>
-          <span>High overhead = expensive repairs</span>
-        </div>
-        <div class="comparison-item">
-          <svg><use href="#i-x"></use></svg>
-          <span>Upsell unnecessary work</span>
-        </div>
-        <div class="comparison-item">
-          <svg><use href="#i-x"></use></svg>
-          <span>Long wait times</span>
-        </div>
-        <div class="comparison-item">
-          <svg><use href="#i-x"></use></svg>
-          <span>One-size-fits-all approach</span>
-        </div>
-        <div class="comparison-item">
-          <svg><use href="#i-x"></use></svg>
-          <span>Limited warranty on parts</span>
-        </div>
-      </div>
-
-      <div class="comparison-column independent">
-        <h3>VRX Auto Service</h3>
-        <div class="comparison-item">
-          <svg><use href="#i-check"></use></svg>
-          <span>Fair pricing, no surprises</span>
-        </div>
-        <div class="comparison-item">
-          <svg><use href="#i-check"></use></svg>
-          <span>Only recommend needed repairs</span>
-        </div>
-        <div class="comparison-item">
-          <svg><use href="#i-check"></use></svg>
-          <span>Quick, efficient service</span>
-        </div>
-        <div class="comparison-item">
-          <svg><use href="#i-check"></use></svg>
-          <span>Personalized attention to detail</span>
-        </div>
-        <div class="comparison-item">
-          <svg><use href="#i-check"></use></svg>
-          <span>Full warranty on all work</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ABOUT ===== -->
-  <section class="about" id="about">
-    <div class="about-content">
-      <div class="about-img"></div>
-      <div class="about-text">
-        <h2>Built on Trust & Expertise</h2>
-        <p>VRX Auto Service has been serving the Glendale community since 2023 with a commitment to honest, quality auto repair. We treat every customer's car like it's our own.</p>
-        <p>Our team of certified technicians has years of experience with all vehicle makes and models. We use the latest diagnostic equipment and quality parts, backed by a full warranty.</p>
-        <ul class="about-list">
-          <li><svg><use href="#i-check"></use></svg> ASE-Certified technicians</li>
-          <li><svg><use href="#i-check"></use></svg> All makes & models</li>
-          <li><svg><use href="#i-check"></use></svg> State-of-the-art diagnostics</li>
-          <li><svg><use href="#i-check"></use></svg> Full warranty on all work</li>
-          <li><svg><use href="#i-check"></use></svg> Honest pricing, no surprises</li>
+      <div class="service-card reveal d3">
+        <div class="service-icon"><svg width="26" height="26"><use href="#i-inspect"/></svg></div>
+        <div class="service-title">Inspections &amp; Maintenance</div>
+        <p class="service-desc">Stay ahead of breakdowns with comprehensive vehicle inspections and scheduled maintenance services.</p>
+        <ul class="service-list">
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Pre-purchase inspections</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>30/60/90K maintenance</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Air filter replacement</li>
+          <li><svg width="14" height="14"><use href="#i-check"/></svg>Tire rotation &amp; balancing</li>
         </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== REVIEWS ===== -->
-  <section class="reviews" id="reviews">
-    <h2 class="section-title">What Our Customers Say</h2>
-    <div class="featured-review">
-      <div class="stars">★★★★★</div>
-      <p>"VRX Auto Service is the most honest shop I've ever been to. They didn't pressure me into unnecessary work, explained everything clearly, and charged fair prices. I'm recommending them to everyone."</p>
-      <div class="author">— Maria R., Glendale</div>
+<!-- COMPARISON -->
+<section class="comparison">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Why Go Independent</div>
+      <h2 class="section-title">VRX vs. the Dealership</h2>
+      <p class="section-sub">You deserve straightforward service without the dealership markup. Here's what you actually get when you choose a trusted independent shop.</p>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card bad reveal rl">
+        <div class="compare-header">
+          <div class="compare-icon-wrap bad-icon">
+            <svg width="18" height="18"><use href="#i-x"/></svg>
+          </div>
+          <div class="compare-badge bad-badge">Dealership / Chain Shop</div>
+        </div>
+        <div class="compare-item">
+          <svg width="18" height="18" color="#f87171"><use href="#i-x"/></svg>
+          <span>High hourly rates padded with shop fees and surcharges</span>
+        </div>
+        <div class="compare-item">
+          <svg width="18" height="18" color="#f87171"><use href="#i-x"/></svg>
+          <span>Unnecessary upsells — recommended services you don't need</span>
+        </div>
+        <div class="compare-item">
+          <svg width="18" height="18" color="#f87171"><use href="#i-x"/></svg>
+          <span>Impersonal service — a different advisor every visit</span>
+        </div>
+        <div class="compare-item">
+          <svg width="18" height="18" color="#f87171"><use href="#i-x"/></svg>
+          <span>Long waits and vague timelines for your vehicle</span>
+        </div>
+        <div class="compare-item">
+          <svg width="18" height="18" color="#f87171"><use href="#i-x"/></svg>
+          <span>Sales pressure to approve work on the spot</span>
+        </div>
+      </div>
+      <div class="compare-card good reveal rr">
+        <div class="compare-header">
+          <div class="compare-icon-wrap good-icon">
+            <svg width="18" height="18"><use href="#i-check"/></svg>
+          </div>
+          <div class="compare-badge good-badge">VRX Auto Service</div>
+        </div>
+        <div class="compare-item">
+          <svg width="18" height="18" color="#3b82f6"><use href="#i-check"/></svg>
+          <span>Fair, transparent pricing — you see the full cost upfront</span>
+        </div>
+        <div class="compare-item">
+          <svg width="18" height="18" color="#3b82f6"><use href="#i-check"/></svg>
+          <span>Only recommended services your vehicle genuinely needs</span>
+        </div>
+        <div class="compare-item">
+          <svg width="18" height="18" color="#3b82f6"><use href="#i-check"/></svg>
+          <span>Chris knows your car — build a lasting relationship with your mechanic</span>
+        </div>
+        <div class="compare-item">
+          <svg width="18" height="18" color="#3b82f6"><use href="#i-check"/></svg>
+          <span>Clear timelines and updates the moment your car is ready</span>
+        </div>
+        <div class="compare-item">
+          <svg width="18" height="18" color="#3b82f6"><use href="#i-check"/></svg>
+          <span>Zero pressure — take time to review your estimate and decide</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="rl">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85" alt="Auto mechanic at work" loading="lazy" />
+          <div class="about-img-badge">
+            <div class="about-img-badge-icon">
+              <svg width="20" height="20"><use href="#i-shield"/></svg>
+            </div>
+            <div class="about-img-badge-text">
+              <strong>4.8★ Rated</strong>
+              <span>30 Google Reviews</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rr">
+        <div class="section-label">About VRX</div>
+        <h2 class="section-title">Repair Done Right, Every Time</h2>
+        <p style="font-size:0.95rem;color:var(--mid);line-height:1.75;margin-bottom:1.5rem;">VRX Auto Service is Glendale's go-to independent auto repair shop — known for honest advice, quality workmanship, and pricing that doesn't come with surprises. Owner Chris and his team treat every vehicle like their own.</p>
+        <div class="about-checks">
+          <div class="about-check">
+            <div class="about-check-icon"><svg width="18" height="18"><use href="#i-check"/></svg></div>
+            <div>
+              <strong>All Makes &amp; Models</strong>
+              <span>Domestic, Asian, and European vehicles — from daily drivers to imports.</span>
+            </div>
+          </div>
+          <div class="about-check">
+            <div class="about-check-icon"><svg width="18" height="18"><use href="#i-shield"/></svg></div>
+            <div>
+              <strong>Written Estimates Before Any Work</strong>
+              <span>No hidden fees. You approve everything — we never start work without your OK.</span>
+            </div>
+          </div>
+          <div class="about-check">
+            <div class="about-check-icon"><svg width="18" height="18"><use href="#i-bolt"/></svg></div>
+            <div>
+              <strong>Modern Diagnostic Equipment</strong>
+              <span>Dealer-level scan tools and equipment to service any modern vehicle correctly.</span>
+            </div>
+          </div>
+          <div class="about-check">
+            <div class="about-check-icon"><svg width="18" height="18"><use href="#i-card"/></svg></div>
+            <div>
+              <strong>Flexible Payment Options</strong>
+              <span>Cash, all major credit cards, debit cards, and NFC mobile payments accepted.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Customer Reviews</div>
+      <h2 class="section-title">What Glendale Drivers Say</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.6)">Rated 4.8 stars across 30 reviews — here's what our customers keep coming back for.</p>
+    </div>
+    <div class="pullquote reveal">
+      <p class="pullquote-text">"Chris is super cool and friendly. The quality of work is unbelievably good and the prices are more than fair. Genuinely the best auto shop experience I've had in LA."</p>
+      <div class="pullquote-author">
+        <div class="pullquote-avatar">J</div>
+        <div>
+          <div class="pullquote-author-name">Jason R.</div>
+          <div class="pullquote-stars">
+            <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+            <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+            <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+            <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+            <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="reviews-grid">
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"Fast, reliable, and affordable. These guys know what they're doing and treat customers with respect."</p>
-        <div class="author">— John M.</div>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"Had my brakes done here and I couldn't be happier. Great customer service and the price was unbeatable."</p>
-        <div class="author">— Sarah K.</div>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"No hidden fees, no surprises. Just honest work at honest prices. Highly recommended!"</p>
-        <div class="author">— David T.</div>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"They fixed my transmission issue quickly and gave me a full explanation of what was wrong. Professional and caring."</p>
-        <div class="author">— Lisa G.</div>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"Best auto shop in Glendale. Fair prices, quality work, and you can actually trust what they tell you."</p>
-        <div class="author">— Robert P.</div>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"Took my car in for an oil change and they spotted an upcoming issue before it became expensive. Saved me money!"</p>
-        <div class="author">— Amanda S.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FAQ ===== -->
-  <section class="faq" id="faq">
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <div class="faq-container">
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Do I need an appointment, or can I walk in?</span>
-          <svg><use href="#i-chevron-down"></use></svg>
+      <div class="review-card reveal d1">
+        <div class="review-stars">
+          <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
         </div>
-        <div class="faq-answer">
-          <p>We welcome both appointments and walk-ins! If you want to guarantee quick service, give us a call ahead at your convenience. Walk-ins are served on a first-come, first-served basis, typically with a short wait time depending on how busy we are.</p>
+        <p class="review-text">"Brought my car in for a weird noise — Chris diagnosed it in 20 minutes and had it fixed same day. Honest, fast, and affordable. This is my shop now."</p>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">Maria G.</div>
+            <div class="review-platform">Google Review</div>
+          </div>
         </div>
       </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>What if I don't know what's wrong with my car?</span>
-          <svg><use href="#i-chevron-down"></use></svg>
+      <div class="review-card reveal d2">
+        <div class="review-stars">
+          <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
         </div>
-        <div class="faq-answer">
-          <p>No problem at all! That's what we're here for. Just describe what you're experiencing—strange sounds, warning lights, performance issues—and our technicians will run a full diagnostic to identify the problem. We'll explain what we find in plain language before we do any work.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Do you work on all car brands and models?</span>
-          <svg><use href="#i-chevron-down"></use></svg>
-        </div>
-        <div class="faq-answer">
-          <p>Yes, absolutely. We service all domestic and foreign vehicle makes and models—from Honda and Toyota to Dodge, Ford, Mercedes, BMW, and everything in between. Our technicians have the training and tools to handle any vehicle that comes through our doors.</p>
+        <p class="review-text">"Finally found a mechanic I actually trust. They showed me the issue, explained everything clearly, and the price was exactly what they quoted. No surprises."</p>
+        <div class="review-author">
+          <div class="review-avatar">D</div>
+          <div>
+            <div class="review-name">David K.</div>
+            <div class="review-platform">Google Review</div>
+          </div>
         </div>
       </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>How long do repairs usually take?</span>
-          <svg><use href="#i-chevron-down"></use></svg>
+      <div class="review-card reveal d3">
+        <div class="review-stars">
+          <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
         </div>
-        <div class="faq-answer">
-          <p>That depends on the repair. Simple services like oil changes take 15–30 minutes. More complex work like brake service or electrical diagnostics might take 1–3 hours. When you bring your car in, we'll give you an honest estimate of how long the work will take so you know what to expect.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Will you call me before starting work or adding costs?</span>
-          <svg><use href="#i-chevron-down"></use></svg>
-        </div>
-        <div class="faq-answer">
-          <p>100% yes. We never start work or exceed the quoted amount without your approval first. If we discover additional issues during the repair, we'll call and explain what we found before we proceed. You're always in control of what gets fixed.</p>
+        <p class="review-text">"Super clean shop, professional team, and I was in and out quickly. They even called me before starting any extra work. Exactly what you want in a mechanic."</p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-name">Aida T.</div>
+            <div class="review-platform">Google Review</div>
+          </div>
         </div>
       </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>What forms of payment do you accept?</span>
-          <svg><use href="#i-chevron-down"></use></svg>
+      <div class="review-card reveal d1">
+        <div class="review-stars">
+          <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
         </div>
-        <div class="faq-answer">
-          <p>We accept cash, all major credit and debit cards, and financing options through Snap Finance. We also offer competitive labor rates and quality parts at fair prices—no hidden fees ever.</p>
+        <p class="review-text">"I've been to several shops in Glendale and VRX is by far the best. Fair pricing, great communication, and the work is solid. Highly recommend to anyone in the area."</p>
+        <div class="review-author">
+          <div class="review-avatar">R</div>
+          <div>
+            <div class="review-name">Robert L.</div>
+            <div class="review-platform">Google Review</div>
+          </div>
         </div>
       </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Can I get a second opinion on a quote from another shop?</span>
-          <svg><use href="#i-chevron-down"></use></svg>
+      <div class="review-card reveal d2">
+        <div class="review-stars">
+          <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
         </div>
-        <div class="faq-answer">
-          <p>Of course! We're happy to take a look and give you our honest opinion. Bring in the other shop's quote and we'll perform our own diagnostic at no charge so you can compare. We're confident you'll see we offer better value and more transparent communication.</p>
+        <p class="review-text">"Took my BMW here — they knew exactly what to do. Dealer wanted $1,200 for the repair; VRX did it for less than half. Same quality work. Will not be going anywhere else."</p>
+        <div class="review-author">
+          <div class="review-avatar">S</div>
+          <div>
+            <div class="review-name">Sara M.</div>
+            <div class="review-platform">Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal d3">
+        <div class="review-stars">
+          <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg><svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+        </div>
+        <p class="review-text">"Stopped in without an appointment because my check engine light came on. Chris fit me in right away, ran the scan, explained everything, and I was on my way within the hour."</p>
+        <div class="review-author">
+          <div class="review-avatar">N</div>
+          <div>
+            <div class="review-name">Nina P.</div>
+            <div class="review-platform">Google Review</div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== SERVICE AREA ===== -->
-  <section class="service-area" id="service-area">
-    <h2 class="section-title">We Serve Greater Glendale</h2>
-    <div class="service-area-content">
-      <div class="service-area-intro">
-        <div class="service-area-map">
-          📍 Conveniently located at 1256 S Central Ave, Glendale, CA -Easy to reach from anywhere in the area
-        </div>
-        <div class="service-area-text">
-          <h2>Located in the Heart of Glendale</h2>
-          <p>We're centrally positioned to serve customers from all neighborhoods across Glendale and surrounding communities. Whether you live minutes away or 20 minutes out, we're worth the drive for honest, quality service.</p>
-          <p>Our location provides convenient access with plenty of parking and a comfortable waiting area. We also offer quick turnaround times so you're back on the road fast.</p>
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-label">Questions</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-sub">Everything you need to know before bringing your vehicle in.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do I need an appointment, or can I walk in?
+          <svg width="20" height="20"><use href="#i-chevron-down"/></svg>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">You're always welcome to walk in — no appointment necessary. We do our best to fit you in the same day, especially for diagnostics and quick services. If you have a larger job, calling ahead ensures we have the time and parts ready for you.</div>
         </div>
       </div>
-
-      <h3 style="margin-top: 60px; margin-bottom: 30px; text-align: center;">Neighborhoods We Serve</h3>
-      <div class="neighborhoods">
-        <div class="neighborhood">
-          <h4>Downtown Glendale</h4>
-          <p>3–5 min drive</p>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What if I don't know what's wrong with my car?
+          <svg width="20" height="20"><use href="#i-chevron-down"/></svg>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">That's exactly what we're here for. Just tell us what you've noticed — any sounds, warning lights, or handling issues — and we'll run a full diagnostic. We'll explain the problem clearly and in plain language before recommending any repair.</div>
         </div>
-        <div class="neighborhood">
-          <h4>Brand Park</h4>
-          <p>5–7 min drive</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do you work on all car brands and models?
+          <svg width="20" height="20"><use href="#i-chevron-down"/></svg>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes — we service all makes and models including domestic, Asian, and European vehicles. Whether it's a Honda, Toyota, BMW, Ford, Mercedes, or anything else, VRX has the diagnostic equipment and expertise to handle it correctly.</div>
         </div>
-        <div class="neighborhood">
-          <h4>Americana</h4>
-          <p>4–6 min drive</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How long do repairs usually take?
+          <svg width="20" height="20"><use href="#i-chevron-down"/></svg>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Simple services like oil changes and brake inspections are often done same-day within a few hours. More complex repairs — like timing belt work or suspension overhauls — may take a full day. We always give you a realistic timeline upfront so you can plan accordingly.</div>
         </div>
-        <div class="neighborhood">
-          <h4>Glenoaks</h4>
-          <p>6–8 min drive</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Will you call me before starting work or adding costs?
+          <svg width="20" height="20"><use href="#i-chevron-down"/></svg>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Absolutely — this is one of Chris's non-negotiables. You'll receive a written estimate before any work begins, and if we discover something unexpected during the repair, we call you immediately for approval. We never add costs without your explicit go-ahead.</div>
         </div>
-        <div class="neighborhood">
-          <h4>North Glendale</h4>
-          <p>8–10 min drive</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What forms of payment do you accept?
+          <svg width="20" height="20"><use href="#i-chevron-down"/></svg>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">We accept cash, all major credit cards (Visa, Mastercard, Amex, Discover), debit cards, and NFC mobile payments (Apple Pay, Google Pay). Paying however is most convenient for you is part of the VRX experience.</div>
         </div>
-        <div class="neighborhood">
-          <h4>South Glendale</h4>
-          <p>5–8 min drive</p>
-        </div>
-        <div class="neighborhood">
-          <h4>Montrose</h4>
-          <p>10–12 min drive</p>
-        </div>
-        <div class="neighborhood">
-          <h4>Burbank</h4>
-          <p>12–15 min drive</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I get a second opinion on a quote from another shop?
+          <svg width="20" height="20"><use href="#i-chevron-down"/></svg>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Of course — we encourage it. Bring in any quote you've received and we'll give you an honest comparison. In many cases, customers find that VRX offers the same or better quality work at a significantly lower price. We have nothing to hide.</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== CTA BAND ===== -->
-  <section class="cta-band">
-    <h2>Ready to Get Your Car Fixed Right?</h2>
-    <p>Call us today for honest diagnosis and fair pricing</p>
-    <div class="cta-phone">(626) 392-0950</div>
-    <p style="margin-bottom: 0; color: #c9bcb3; font-size: 14px;">Mon-Sat, 8:00 AM – 6:30 PM</p>
-  </section>
+<!-- SERVICE AREA -->
+<section class="area" id="area">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Service Area</div>
+      <h2 class="section-title">Serving Glendale &amp; Surrounding Areas</h2>
+      <p class="section-sub">Located at 1256 S Central Ave, VRX is easily accessible from neighborhoods throughout the greater Glendale area.</p>
+    </div>
+    <div class="area-grid">
+      <div class="area-map-card reveal rl">
+        <div class="area-map-placeholder">
+          <svg class="area-map-icon" width="48" height="48"><use href="#i-pin"/></svg>
+          <div class="area-map-address">1256 S Central Ave<br/>Glendale, CA 91204</div>
+          <div class="area-map-sub">VRX Auto Service</div>
+          <a href="https://maps.google.com/?q=VRX+Auto+Service+1256+S+Central+Ave+Glendale+CA" target="_blank" class="area-map-btn">
+            <svg width="14" height="14"><use href="#i-pin"/></svg>
+            Get Directions
+          </a>
+        </div>
+      </div>
+      <div class="reveal rr">
+        <div class="neighborhoods">
+          <div class="neighborhood"><span class="neighborhood-name">Downtown Glendale</span><span class="neighborhood-time">2 min</span></div>
+          <div class="neighborhood"><span class="neighborhood-name">Atwater Village</span><span class="neighborhood-time">5 min</span></div>
+          <div class="neighborhood"><span class="neighborhood-name">Eagle Rock</span><span class="neighborhood-time">8 min</span></div>
+          <div class="neighborhood"><span class="neighborhood-name">Burbank</span><span class="neighborhood-time">10 min</span></div>
+          <div class="neighborhood"><span class="neighborhood-name">Montrose</span><span class="neighborhood-time">10 min</span></div>
+          <div class="neighborhood"><span class="neighborhood-name">La Cañada Flintridge</span><span class="neighborhood-time">12 min</span></div>
+          <div class="neighborhood"><span class="neighborhood-name">Pasadena</span><span class="neighborhood-time">15 min</span></div>
+          <div class="neighborhood"><span class="neighborhood-name">Silver Lake</span><span class="neighborhood-time">15 min</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- ===== CONTACT ===== -->
-  <section class="contact" id="contact">
-    <h2 class="section-title">Get in Touch</h2>
-    <div class="contact-container">
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="section-inner" style="text-align:center">
+    <h2>Ready to Book Your Repair?</h2>
+    <p>Call us today or stop by — walk-ins always welcome.</p>
+    <a href="tel:8188182887" class="cta-phone">
+      <svg width="28" height="28"><use href="#i-phone"/></svg>
+      (818) 818-2887
+    </a>
+    <div class="cta-hours">Monday – Saturday &nbsp;·&nbsp; 8:00 AM – 6:30 PM &nbsp;·&nbsp; Sunday Closed</div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Contact VRX Auto Service</h2>
+    </div>
+    <div class="contact-grid">
       <div>
-        <h3>Hours & Location</h3>
+        <div class="contact-info">
+          <div class="contact-info-row">
+            <div class="contact-info-icon"><svg width="20" height="20"><use href="#i-pin"/></svg></div>
+            <div>
+              <div class="contact-info-label">Address</div>
+              <div class="contact-info-value">1256 S Central Ave, Glendale, CA 91204</div>
+            </div>
+          </div>
+          <div class="contact-info-row">
+            <div class="contact-info-icon"><svg width="20" height="20"><use href="#i-phone"/></svg></div>
+            <div>
+              <div class="contact-info-label">Phone</div>
+              <div class="contact-info-value"><a href="tel:8188182887" style="color:var(--blue)">(818) 818-2887</a></div>
+            </div>
+          </div>
+        </div>
         <table class="hours-table">
-          <tr>
-            <td>Monday</td>
-            <td>8:00 AM – 6:30 PM</td>
-          </tr>
-          <tr>
-            <td>Tuesday</td>
-            <td>8:00 AM – 6:30 PM</td>
-          </tr>
-          <tr>
-            <td>Wednesday</td>
-            <td>8:00 AM – 6:30 PM</td>
-          </tr>
-          <tr>
-            <td>Thursday</td>
-            <td>8:00 AM – 6:30 PM</td>
-          </tr>
-          <tr>
-            <td>Friday</td>
-            <td>8:00 AM – 6:30 PM</td>
-          </tr>
-          <tr>
-            <td>Saturday</td>
-            <td>8:00 AM – 6:30 PM</td>
-          </tr>
-          <tr>
-            <td>Sunday</td>
-            <td>Closed</td>
-          </tr>
+          <tr><td>Monday</td><td>8:00 AM – 6:30 PM</td></tr>
+          <tr><td>Tuesday</td><td>8:00 AM – 6:30 PM</td></tr>
+          <tr><td>Wednesday</td><td>8:00 AM – 6:30 PM</td></tr>
+          <tr><td>Thursday</td><td>8:00 AM – 6:30 PM</td></tr>
+          <tr><td>Friday</td><td>8:00 AM – 6:30 PM</td></tr>
+          <tr><td>Saturday</td><td>8:00 AM – 6:30 PM</td></tr>
+          <tr><td>Sunday</td><td style="color:#ef4444">Closed</td></tr>
         </table>
-        <p style="margin-top: 25px; font-size: 14px; color: var(--mid);">📍 1256 S Central Ave<br>Glendale, CA 91204</p>
       </div>
-
       <div>
-        <h3>Request a Callback</h3>
-        <form onsubmit="handleSubmit(event)">
-          <div class="form-group">
-            <label>Your Name</label>
-            <input type="text" placeholder="John Doe" required>
+        <form onsubmit="handleForm(event)" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="(818) 555-0000" required />
+            </div>
           </div>
           <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" placeholder="(626) 000-0000" required>
+            <label for="vehicle">Your Vehicle</label>
+            <input type="text" id="vehicle" placeholder="e.g. 2019 Honda Accord" required />
           </div>
           <div class="form-group">
-            <label>Vehicle & Issue</label>
-            <input type="text" placeholder="e.g., 2018 Honda Civic - brake noise" required>
+            <label for="service">Service Needed</label>
+            <select id="service">
+              <option value="">Select a service...</option>
+              <option>Engine Diagnostics</option>
+              <option>Brake Service</option>
+              <option>Oil Change</option>
+              <option>Suspension / Steering</option>
+              <option>Electrical System</option>
+              <option>Inspection</option>
+              <option>Other</option>
+            </select>
           </div>
           <div class="form-group">
-            <label>Tell Us More</label>
-            <textarea placeholder="Describe your vehicle issue in detail..." required></textarea>
+            <label for="message">Describe the Issue</label>
+            <textarea id="message" rows="4" placeholder="Tell us what you've noticed — sounds, warning lights, handling issues..."></textarea>
           </div>
-          <button type="submit" class="form-submit">Request Callback</button>
+          <button type="submit" class="form-submit">
+            <svg width="18" height="18"><use href="#i-chat"/></svg>
+            Request a Callback
+          </button>
         </form>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="footer-content">
+<!-- FOOTER -->
+<footer>
+  <div class="section-inner">
+    <div class="footer-top">
       <div class="footer-brand">
-        <h3>VRX Auto Service</h3>
-        <p>Honest auto repair you can trust. Fair pricing, quality work, expert technicians serving Glendale since 2023.</p>
+        <div class="nav-logo" style="margin-bottom:1rem">
+          <svg width="22" height="22"><use href="#i-wrench"/></svg>
+        </div>
+        <div class="footer-brand-name">VRX Auto Service</div>
+        <div class="footer-brand-tagline">Honest repairs. Fair prices. Every time.</div>
+        <div class="footer-rating">
+          <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+          <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+          <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+          <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+          <svg width="14" height="14" class="star-filled"><use href="#i-star"/></svg>
+          <span style="color:rgba(255,255,255,0.5);font-size:0.75rem;margin-left:4px">4.8 stars · 30 reviews</span>
+        </div>
       </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
         <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#services">Engine Diagnostics</a></li>
+          <li><a href="#services">Brake Service</a></li>
+          <li><a href="#services">Oil Changes</a></li>
+          <li><a href="#services">Suspension &amp; Steering</a></li>
+          <li><a href="#services">Electrical Repair</a></li>
+          <li><a href="#services">Vehicle Inspections</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Quick Links</div>
+        <ul>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#about">About VRX</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="#area">Service Area</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
-      <div class="footer-links">
-        <h4>Contact Us</h4>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
         <ul>
-          <li><a href="tel:+16263920950">(626) 392-0950</a></li>
-          <li><a href="mailto:info@vrxauto.com">info@vrxauto.com</a></li>
-          <li>1256 S Central Ave<br>Glendale, CA 91204</li>
-          <li style="margin-top: 10px;"><strong>Mon-Sat:</strong> 8:00 AM – 6:30 PM</li>
+          <li><a href="tel:8188182887">(818) 818-2887</a></li>
+          <li><a href="https://maps.google.com/?q=VRX+Auto+Service+Glendale+CA" target="_blank">1256 S Central Ave<br/>Glendale, CA 91204</a></li>
+          <li style="color:rgba(255,255,255,0.5);font-size:0.8rem;padding-top:0.25rem;">Mon–Sat: 8AM–6:30PM<br/>Sunday: Closed</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 VRX Auto Service. All rights reserved. | Trusted by 1000+ customers in Glendale</p>
+      <div>&copy; 2026 VRX Auto Service · Glendale, CA · All rights reserved.</div>
+      <div>1256 S Central Ave, Glendale, CA 91204</div>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script>
-    // FAQ Accordion
-    document.querySelectorAll('.faq-question').forEach(question => {
-      question.addEventListener('click', () => {
-        const faqItem = question.closest('.faq-item');
-        faqItem.classList.toggle('active');
-      });
-    });
+<script>
+  // MOBILE MENU
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  function closeMenu() { mobileMenu.classList.remove('open'); }
 
-    // Scroll Reveal Animation
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
+  // FAQ ACCORDION
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-a.open').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q.open').forEach(q => q.classList.remove('open'));
+    if (!isOpen) {
+      answer.classList.add('open');
+      btn.classList.add('open');
+    }
+  }
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-        }
-      });
-    }, observerOptions);
+  // SCROLL REVEAL
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .rl, .rr').forEach(el => observer.observe(el));
 
-    document.querySelectorAll('.reveal, .process-step, .service-card').forEach(el => {
-      observer.observe(el);
-    });
-
-
-    // Form Submission
-    function handleSubmit(e) {
-      e.preventDefault();
-      alert('Thank you! We\'ll call you back within 24 hours.');
+  // FORM SUBMISSION
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Request Sent! We\'ll Call You Soon.';
+    btn.style.background = '#16a34a';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = '<svg width="18" height="18"><use href="#i-chat"/></svg> Request a Callback';
+      btn.style.background = '';
+      btn.disabled = false;
       e.target.reset();
-    }
+    }, 4000);
+  }
 
-    // Mobile Menu Toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    if (navToggle) {
-      navToggle.addEventListener('click', () => {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-      });
+  // HIGHLIGHT TODAY'S HOURS
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const today = days[new Date().getDay()];
+  document.querySelectorAll('.hours-table tr').forEach(row => {
+    if (row.cells[0] && row.cells[0].textContent.trim() === today) {
+      row.classList.add('today');
     }
-  </script>
+  });
+</script>
 </body>
 </html>
