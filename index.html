@@ -1186,9 +1186,6 @@
       animation: fadeUp 0.6s ease forwards;
     }
 
-    .counter {
-      display: inline-block;
-    }
   </style>
 </head>
 <body>
@@ -1319,7 +1316,7 @@
   <section class="stats-band">
     <div class="stats-grid">
       <div class="stat-item">
-        <h3><span class="counter" data-count="4.8">4.8</span>★</h3>
+        <h3>4.8★</h3>
         <p>Customer Rating</p>
       </div>
       <div class="stat-item">
@@ -1811,34 +1808,6 @@
       observer.observe(el);
     });
 
-    // Counter Animation
-    function animateCounter(element) {
-      const target = parseFloat(element.getAttribute('data-count'));
-      const duration = 2000;
-      const start = Date.now();
-
-      function update() {
-        const elapsed = Date.now() - start;
-        const progress = Math.min(elapsed / duration, 1);
-        element.textContent = (target * progress).toFixed(1).replace(/\.0$/, '');
-        if (progress < 1) requestAnimationFrame(update);
-      }
-
-      update();
-    }
-
-    // Trigger counters when stats band comes into view
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          document.querySelectorAll('.counter').forEach(counter => animateCounter(counter));
-          statsObserver.unobserve(entry.target);
-        }
-      });
-    });
-
-    const statsBand = document.querySelector('.stats-band');
-    if (statsBand) statsObserver.observe(statsBand);
 
     // Form Submission
     function handleSubmit(e) {
